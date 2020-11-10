@@ -5,9 +5,9 @@ CREATE DATABASE burgers_db;
 
 USE burgers_db;
 
-CREATE TABLE top5000 (
-  id INT NOT NULL,
+CREATE TABLE burgers (
+  id INT NOT NULL AUTO_INCREMENT,
   burger_name VARCHAR(100) NULL,
-  devoured BOOLEAN,
+  devoured BOOLEAN DEFAULT FALSE,
   PRIMARY KEY (id)
 );
