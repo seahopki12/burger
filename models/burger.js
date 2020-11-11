@@ -12,12 +12,12 @@ const burger = {
       });
     },
     // The variables cols and vals are arrays.
-    create: function(col, val, cb) {
+    insertOne: function(col, val, cb) {
       orm.create(col, val, function(res) {
         console.log(res);
       });
     },
-    update: function(val, condition, cb) {
+    updateOne: function(val, condition, cb) {
       orm.update(val, condition, function(res) {
         console.log(res);
       });
