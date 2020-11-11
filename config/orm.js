@@ -13,8 +13,14 @@ const orm = {
         });
     },
     insertOne: function (col, val, cb) {
-        let queryString = `INSERT INTO burgers (${col}) VALUES (${val});`
-        connection.query(queryString, function (err, result) {
+        // let queryString = `INSERT INTO burgers (${col}) VALUES (${val});`
+        let queryString = "INSERT INTO burgers";
+
+        queryString += " (";
+        queryString += col.toString();
+        queryString += ") ";
+        queryString += "VALUES (?)";
+        connection.query(queryString, val, function (err, result) {
             if (err) {
                 throw err;
             }

@@ -9,21 +9,21 @@ const burger = require("../models/burger.js");
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
       const hbsObject = {
-        burger: data
+        burgers: data
       };
-      console.log(hbsObject);
       res.render("index", hbsObject);
     });
   });
   
   router.post("/api/burgers", function(req, res) {
     burger.insertOne([
-      "burger_name", "devoured"
+      "burger_name"
     ], [
-      req.body.burger_name, req.body.devoured
+      req.body.name
     ], function(result) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
+      console.log({ id: result.insertId });
     });
   });
   
